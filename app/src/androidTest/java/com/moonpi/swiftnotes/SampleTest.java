@@ -1,7 +1,11 @@
-package com.moonpi.swiftnotes;
+package com.moonpi.swiftnotes.test;
 
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+
+import com.moonpi.swiftnotes.MainActivity;
+import com.moonpi.swiftnotes.R;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,7 +16,6 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withHint;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.allOf;
 
 @RunWith(AndroidJUnit4.class)
@@ -23,8 +26,9 @@ public class SampleTest {
 
     @Test
     public void javaExampleTest() {
-        onView(withId(R.id.newNote)).perform(click());
-        onView(allOf(withId(R.id.titleEdit), isDisplayed())).check(matches(withHint("Title")));
-        onView(allOf(withId(R.id.bodyEdit), isDisplayed())).check(matches(withHint("Note")));
+        onView(ViewMatchers.withId(com.moonpi.swiftnotes.R.id.newNote)).perform(click());
+        onView(allOf(ViewMatchers.withId(com.moonpi.swiftnotes.R.id.titleEdit), isDisplayed())).check(matches(withHint("Title")));
+        onView(allOf(ViewMatchers.withId(R.id.bodyEdit), isDisplayed())).check(matches(withHint("Note")));
+
     }
 }
