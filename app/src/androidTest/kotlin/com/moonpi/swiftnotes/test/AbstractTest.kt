@@ -5,6 +5,7 @@ import android.support.test.InstrumentationRegistry
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.moonpi.swiftnotes.MainActivity
+import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
 import java.io.File
@@ -16,6 +17,7 @@ open class AbstractTest {
     @get:Rule
     var mActivityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
 
+    @Before
     fun clearUserData() {
         val appPath = InstrumentationRegistry.getTargetContext().filesDir.parentFile
 
