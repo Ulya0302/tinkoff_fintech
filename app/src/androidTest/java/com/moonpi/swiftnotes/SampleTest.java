@@ -1,4 +1,4 @@
-package com.moonpi.swiftnotes.test;
+package com.moonpi.swiftnotes;
 
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;

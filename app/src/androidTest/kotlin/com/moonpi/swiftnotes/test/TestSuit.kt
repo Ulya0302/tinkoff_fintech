@@ -14,7 +14,6 @@ class TestSuit : AbstractTest() {
     @Test
     @DisplayName("Проверка основных элементов на экране")
     fun checkMainElementsTest() {
-        clearUserData()
         step("Проверка на главном экране наличия основных элементов") {
             app.checkTitle("Swiftnotes")
             app.checkTextAddNewNote("Press '+' to add new note")
@@ -43,7 +42,6 @@ class TestSuit : AbstractTest() {
     @Test
     @DisplayName("Тестирование создания заметки")
     fun creatingNoteTest() {
-        clearUserData()
         step("Нажатие на кнопку '+'. Ввод '1' в заголовок и тело") {
             app.clickOnAddNewNoteButton()
             app.typeInTitle("1")
@@ -67,7 +65,6 @@ class TestSuit : AbstractTest() {
     @Test
     @DisplayName("Проверка кнопок в меню")
     fun checkMenusTest() {
-        clearUserData()
         step("Нажатие на кнопку меню. Проверка видимости, активности трех кнопок " +
                 "и совпадения текста на них.") {
             app.clickMenuButton()
@@ -87,7 +84,5 @@ class TestSuit : AbstractTest() {
            app.checkHideBodyButton("Hide note body in list")
            deviceScreenshot("Меню на экране создания заметки")
        }
-
-
     }
 }
