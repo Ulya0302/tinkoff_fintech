@@ -1,13 +1,11 @@
 package com.moonpi.swiftnotes.app
 
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
-import android.support.test.espresso.matcher.ViewMatchers.withText
+import android.os.Environment
 import android.support.test.uiautomator.UiObject2
 import com.moonpi.swiftnotes.R
 import com.moonpi.swiftnotes.util.*
 import org.junit.Assert.assertTrue
+import java.io.File
 
 
 class Application  {
@@ -30,6 +28,16 @@ class Application  {
     private val titleNoteSelector = byStringRes("com.moonpi.swiftnotes:id/titleView")
     private val bodyNoteSelector = byStringRes("com.moonpi.swiftnotes:id/bodyView")
     private val menuButtonSelector = byContentDesc("Ещё")
+
+
+    fun deleteOldResults() {
+        val resultPath = File(Environment.getExternalStorageDirectory()
+                .absolutePath + "/allure-results")
+        if (resultPath.exists()) {
+            resultPath.deleteRecursively()
+        }
+    }
+
 
     fun checkTitle(text: String) {
         checkTextWithText(applicationTitleID, text)
@@ -118,14 +126,6 @@ class Application  {
         checkButton(hideBodyTextID, text)
     }
 
-    fun codeViti() {
-        onView(withText("Backup notes"))
-                .check(matches(isDisplayed()))
-        onView(withText("Restore notes"))
-                .check(matches(isDisplayed()))
-        onView(withText("Rate app"))
-                .check(matches(isDisplayed()))
-    }
 
     fun pressBack() {
         getDevice().pressBack()
